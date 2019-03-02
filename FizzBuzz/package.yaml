@@ -1,0 +1,48 @@
+name:                FizzBuzz
+version:             0.1.0.0
+github:              "Unrooted/FizzBuzz"
+license:             BSD3
+author:              "Konrad Klawikowski aka Konrad Nachtigall aka Unrooted"
+maintainer:          "konrad.root.klawikowski@gmail.com"
+copyright:           "Unrooted"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/Unrooted/FizzBuzz#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+executables:
+  FizzBuzz-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - FizzBuzz
+
+tests:
+  FizzBuzz-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - FizzBuzz
