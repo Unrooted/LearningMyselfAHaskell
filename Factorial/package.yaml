@@ -1,6 +1,6 @@
 name:                Factorial
 version:             0.1.0.0
-github:              "Unrooted/Factorial"
+github:              "Unrooted/LearningMyselfAHaskell"
 license:             BSD3
 author:              "Konrad Klawikowski aka Konrad Nachtigall aka Unrooted"
 maintainer:          "konrad.root.klawikowski@gmail.com"
@@ -17,7 +17,7 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/Unrooted/Factorial#readme>
+description:         Please see the README on GitHub at <https://github.com/Unrooted/LearningMyselfAHaskell/tree/master/Factorial>
 
 dependencies:
 - base >= 4.7 && < 5
