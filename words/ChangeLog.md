@@ -1,3 +1,3 @@
-# Changelog for simple
+# Changelog for words
 
 ## Unreleased changes

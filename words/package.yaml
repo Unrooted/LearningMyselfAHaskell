@@ -1,0 +1,48 @@
+name:                words
+version:             0.1.0.0
+github:              "unrooted/words"
+license:             BSD3
+author:              "Konrad &#39;Unrooted&#39; Klawikowski"
+maintainer:          "konrad.root.klawikowski@gmail.com"
+copyright:           "2020 Konrad &#39;Unrooted&#39; Klawikowski"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/unrooted/words#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+executables:
+  words-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - words
+
+tests:
+  words-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - words
