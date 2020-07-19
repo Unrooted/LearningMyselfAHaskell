@@ -1,22 +1,29 @@
 import Test.Hspec
 import Lib
 import Data
+import Data.Maybe
+
+game = makeGame grid languages
+grid' = gameGrid game
 
 main :: IO ()
 main = hspec $ do
-    describe "formatGrid" $ do
-        it "Should concatenate every line with a newline" $ do
-            (formatGrid ["abc", "def", "ghi"]) `shouldBe` "abc\ndef\nghi"
+  describe "formatGrid" $ do
+    it "joins up a grid into a string" $ do
+      formatGrid ["abc", "def", "ghi"] `shouldBe` "abc\ndef\nghi\n"
 
-    describe "findWord" $ do
-        it "Should find words that exist on the Grid" $ do
-            findWord grid "HASKELL" `shouldBe` Just "HASKELL"
-            findWord grid "PERL" `shouldBe` Just "PERL"
-        it "Should not find words that do not exist on the Grid" $ do
-            findWord grid "HAMSTER" `shouldBe` Nothing
+  describe "findWord" $ do
+    it "fails to find missing words" $ do
+      testFindWord grid' "HASKELL"
+      testFindWord grid' "PERL"
 
-    describe "findWords" $ do
-        it "Should find all the words that exist on the Grid" $ do
-            findWords grid languages `shouldBe` languages
-        it "Should not find words that do not exist on the Grid" $ do
-            findWords grid ["FRENCH", "GERMAN", "ENGLISH"] `shouldBe` []
+      findWord grid' "FRENCH" `shouldBe` Nothing
+
+  describe "findWords" $ do
+    it "should find all the words in word-list" $ do
+      let found = findWords grid' languages
+      map cells2string found `shouldBe` languages
+
+testFindWord grid word = do
+  let found = fromJust (findWord grid word)
+  cells2string found `shouldBe` word

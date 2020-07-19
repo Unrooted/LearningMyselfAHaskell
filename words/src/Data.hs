@@ -27,19 +27,3 @@ languages = [ "BASIC"
             , "RUBY"
             , "SCHEME"
             ]
-
-coords = do
-    row <- [0..7]
-    return $ do
-        col <- [0..7]
-        return (row, col)
-
-cols = repeat [0..]
-rows = map repeat [0..]
-
-repeat8 = take 8 . repeat
-cols8 = repeat8 [0..7]
-rows8 = map repeat8 [0..7]
-
-zipOverGrid = zipWith zip
-grid8 = zipOverGrid rows8 cols8
