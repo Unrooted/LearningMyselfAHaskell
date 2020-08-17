@@ -1,3 +1,5 @@
+main :: IO()
+main = return()
 elementAt :: [a] -> Int -> a
 elementAt xs n
   | length xs < n = error "list too small"
